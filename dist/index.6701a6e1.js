@@ -963,7 +963,7 @@ class MyFlixApplication extends _reactDefault.default.Component {
                     lineNumber: 12
                 },
                 __self: this,
-                children: "Buenos dias!"
+                children: "Buenos dias - Good morning - Bonjour - Guten Morgan!"
             })
         }));
     }
