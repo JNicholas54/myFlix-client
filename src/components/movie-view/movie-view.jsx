@@ -1,12 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export class MovieView extends React.Component {
 
-componentDidMount() {
-  document.addEventListener('keypress', event => {
+  keypressCallback(event) {
     console.log(event.key);
-  });
-}
+  }
+
+  componentDidMount() {
+    document.addEventListener('keypress', this.keypressCallback);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keypress', this.keypressCallback);
+  }
 
   render() {
     const { movie, onBackClick } = this.props;
@@ -14,7 +21,7 @@ componentDidMount() {
     return (
       <div className="movie-view">
         <div className="movie-poster">
-          <img src="{movie.ImagePath}" />
+          <img src="{movie.ImageURL}" />
         </div>
 
         <div className="movie-title">
@@ -37,13 +44,23 @@ componentDidMount() {
           <span className="value"> {movie.Director.Name} </span>
         </div>
 
-        <button
-          onClick={() => {
-            onBackClick(null);
-          }}>
-          Back
-        </button>
+        <button onClick={() => { onBackClick(null); }}>Back</button>
       </div>
     );
   }
 }
+
+MovieView.propTypes = {
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    Genre: PropTypes.shape({
+      Name: PropTypes.string.isRequired
+    }),
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired
+    }),
+    ImageUrl: PropTypes.string.isRequired
+  }).isRequired,
+  onMovieClick: PropTypes.func.isRequired
+};
