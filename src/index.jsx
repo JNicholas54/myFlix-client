@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { MainView } from './components/main-view/main-view';
 import { MovieCard } from './components/movie-card/movie-card';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // Import statement ot indicate that you need to bundle './index.scss'
