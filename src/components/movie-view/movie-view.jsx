@@ -1,5 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import axios from 'axios';
+import { Row, Col, Button } from 'react-bootstrap';
+
+import './movie-view.scss'
 
 export class MovieView extends React.Component {
 
@@ -19,9 +23,11 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
+      <Row>
+          <Col>
       <div className="movie-view">
         <div className="movie-poster">
-          <img src="{movie.ImageURL}" />
+          <img src="{movie.ImagePath}" />
         </div>
 
         <div className="movie-title">
@@ -34,18 +40,20 @@ export class MovieView extends React.Component {
           <span className="value"> {movie.Description} </span>
         </div>
 
-        <div className="movie-genre">
-          <span className="label"> Genre:</span>
-          <span className="value"> {movie.Genre.Name} </span>
-        </div>
-
         <div className="movie-director">
-          <span className="label"> Director:</span>
-          <span className="value"> {movie.Director.Name} </span>
+              <span className="label">Director: </span>
+              <span className="value">{movie.Director.Name}</span>
+            </div>
+            <div className="movie-genre">
+              <span className="label">Genre: </span>
+              <span className="value">{movie.Genre.Name}</span>
         </div>
 
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+        <Button className="back-button mt-2" variant="secondary" onClick={() => { onBackClick(null); }}>Back</Button>
+
       </div>
+      </Col>
+      </Row>
     );
   }
 }
@@ -60,7 +68,7 @@ MovieView.propTypes = {
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired
     }),
-    ImageUrl: PropTypes.string.isRequired
+    ImagePath: PropTypes.string.isRequired
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired
 };
