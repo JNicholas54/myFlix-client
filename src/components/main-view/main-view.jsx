@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import useState from 'react';
 
 
 import { RegistrationView } from '../registration-view/registration-view';
@@ -14,6 +15,8 @@ import Col from 'react-bootstrap/Col';
 
 
 import './main-view.scss';
+
+const [token, setToken] = useState();
 
 export class MainView extends React.Component {
     constructor() {
@@ -67,7 +70,19 @@ export class MainView extends React.Component {
     }
 
     render() {
-        const { movies, selectedMovie, user, registered } = this.state;
+      
+    const { movies, selectedMovie, user, registered } = this.state;
+      
+      if (!user) {
+        return (
+          <LoginView
+            onLoggedIn={(user, token) => {
+              setUser(user);
+              setToken(token);
+            }}
+          />
+        );
+      }
 
         if (!registered) return (<RegistrationView />);
       
@@ -83,6 +98,32 @@ export class MainView extends React.Component {
         if (movies.length === 0)
       return <div className="main-view" />;
 
+      const handleSubmit = (event) => {
+        event.preventDefault();
+    
+        const data = {
+          Username: username,
+          Password: password,
+          Email: email,
+          Birthday: birthday
+        };
+    
+        fetch("SIGNUP_URL", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then((response) => {
+          if (response.ok) {
+            alert("Signup successful");
+            window.location.reload();
+          } else {
+            alert("Signup failed");
+          }
+        });
+      };
+
     return (
       <Row className="main-view justify-content-md-center">
       //If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned
@@ -97,6 +138,7 @@ export class MainView extends React.Component {
         </Col>
           ))
         }
+        <button onClick={() => { setUser(null); setToken(null); }}>Logout</button>
       </Row>
     );
   }}
