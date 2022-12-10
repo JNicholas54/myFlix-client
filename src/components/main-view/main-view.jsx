@@ -27,7 +27,7 @@ export class MainView extends React.Component {
     }
 
     componentDidMount() {
-      axios.get('https://movie-api3.onrender.com/movies')
+      axios.get('https://movie-api.onrender.com/movies')
       .then(response => {
         this.setState({
           movies: response.data

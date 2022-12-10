@@ -28,7 +28,7 @@ export function LoginView(props) {
     Password: password
   };
 
-  fetch("https://movie-api3.onrender.com/movies/login", {
+  fetch("https://movie-api.onrender.com/movies/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
