@@ -43248,7 +43248,7 @@ function RegistrationView(props) {
                                             },
                                             __source: {
                                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 85
+                                                lineNumber: 81
                                             },
                                             __self: this,
                                             children: "Back to the Login Page"

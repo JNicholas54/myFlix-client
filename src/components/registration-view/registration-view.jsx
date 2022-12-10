@@ -75,18 +75,12 @@ export function RegistrationView(props) {
                     />
                   </Form.Group>
 
-                  <Button
-                    className="sign-up-button mt-2 mr-2"
-                    variant="primary"
-                    type="submit"
-                    onClick={handleSubmit}
-                  >Register
+                  <Button className="sign-up-button mt-2 mr-2" variant="primary" type="submit" onClick={handleSubmit}>
+                    Register
                   </Button>
-                  <Button 
-                  className="back-button mt-2"
-                  variant="secondary"
-                  type="submit"
-                  onClick={() => { onBackClick(null); }}>Back to the Login Page</Button>
+                  <Button className="back-button mt-2" variant="secondary" type="submit" onClick={() => { onBackClick(null); }}>
+                    Back to the Login Page
+                  </Button>
                 </Form>
               </Card.Body>
             </Card>
