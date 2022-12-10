@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { MainView } from './components/main-view/main-view';
 import { MovieCard } from './components/movie-card/movie-card';
-import Container from 'react-bootstrap/Container';
 
+import Container from 'react-bootstrap/Container';
 
 // Import statement ot indicate that you need to bundle './index.scss'
 import './index.scss';

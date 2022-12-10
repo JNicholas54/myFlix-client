@@ -17,7 +17,7 @@ export function RegistrationView(props) {
     console.log(username, password, email, Birthday);
     /* Send a request to the server for authentication */
     /* then call props on registored user(username) */
-    props.onRegistration(username);
+    props.Registration(username);
   };
 
   return (

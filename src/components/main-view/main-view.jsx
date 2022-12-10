@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import useState from 'react';
-
+import { useState } from 'react';
 
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
@@ -13,15 +12,12 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-
 import './main-view.scss';
-
-const [token, setToken] = useState();
-
 export class MainView extends React.Component {
-    constructor() {
-        super();
-        // initial state is set to null
+  
+  constructor() {
+    super();
+    // initial state is set to null
         this.state = {
             movies: [],
             selectedMovie: null,
@@ -31,7 +27,7 @@ export class MainView extends React.Component {
     }
 
     componentDidMount() {
-      axios.get('https://guarded-wave-99547.herokuapp.com/movies')
+      axios.get('https://movie-api3.onrender.com/movies')
       .then(response => {
         this.setState({
           movies: response.data
