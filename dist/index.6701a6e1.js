@@ -25604,7 +25604,7 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        _axiosDefault.default.get('https://movie-api3.onrender.com/movies').then((response)=>{
+        _axiosDefault.default.get('https://movie-api.onrender.com/movies').then((response)=>{
             this.setState({
                 movies: response.data
             });
@@ -43315,7 +43315,7 @@ function LoginView(props) {
         Username: username,
         Password: password
     };
-    fetch("https://movie-api3.onrender.com/movies/login", {
+    fetch("https://movie-api.onrender.com/movies/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
