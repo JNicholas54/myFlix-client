@@ -9,6 +9,6 @@ services:
     plan: free # optional; defaults to starter
     numInstances: 1
     envVars:
-      - key: CONNECTION_URI # Imported from Heroku app
+      - key: CONNECTION_URI1 # Imported from Heroku app
         value: mongodb+srv://jerAtlasDBadmin:passpasspass@jeratlasdb.ltinnim.mongodb.net/myFlixDB?retryWrites&#x3D;true&amp;w&#x3D;majority
 
