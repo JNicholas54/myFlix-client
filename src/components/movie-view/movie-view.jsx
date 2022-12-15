@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 import '/movie-view.scss';
 
@@ -64,5 +65,5 @@ MovieView.propTypes = {
     }),
     ImageUrl: PropTypes.string.isRequired
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
+  onBackClick: PropTypes.func.isRequired
 };

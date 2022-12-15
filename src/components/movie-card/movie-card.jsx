@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 export class MovieCard extends React.Component {
+  
   render() {
     const { movie, onMovieClick } = this.props;
 
