@@ -18,6 +18,11 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
 
+  const handleRegisterClick = (e) => {
+    e.preventDefault();
+    props.toRegister();
+  };
+
   return (
     <Form>
       <Form.Group controlId="formUsername">
