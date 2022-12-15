@@ -7,7 +7,9 @@ import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
+import '.main-view.scss';
 export class MainView extends React.Component {
+
     constructor() {
         super();
         // initial state is set to null
@@ -33,7 +35,7 @@ export class MainView extends React.Component {
     // when a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*
     setSelectedMovie(newSelectedMovie) {
         this.setState({
-            selectedMovie: newSelectedMovie,
+            selectedMovie: movie
         });
     }
 
@@ -54,14 +56,16 @@ export class MainView extends React.Component {
     render() {
         const { movies, selectedMovie, user, register } = this.state;
 
-        if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
+        if (!register) 
+          return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
       
         //If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView
-        if (!user) return <LoginView on LoggedIn={user => this.onLoggedIn(user)} />;
+        if (!user) 
+          return <LoginView on LoggedIn={user => this.onLoggedIn(user)} />;
       
         // before the movie shave been loaded
         if (movies.length === 0)
-      return <div className="main-view" />;
+          return <div className="main-view" />;
 
     return (
       <div className="main-view">
