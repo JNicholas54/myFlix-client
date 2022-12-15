@@ -17,6 +17,7 @@ export class MainView extends React.Component {
             movies: [],
             selectedMovie: null,
             user: null,
+            registered: true,
         };
     }
 
@@ -33,17 +34,10 @@ export class MainView extends React.Component {
     }
     
     // when a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*
-    setSelectedMovie(newSelectedMovie) {
+    setSelectedMovie(movie) {
         this.setState({
             selectedMovie: movie
         });
-    }
-
-    // When a user successfully registers
-    onRegistration(register) {
-      this.setState({
-        register,
-      });
     }
 
     //When a user successfully logs in, this function updates the `user` property in state to that *particular user
@@ -53,15 +47,26 @@ export class MainView extends React.Component {
       });
     }
 
+    // When a user successfully registers
+    toRegister(registered) {
+      this.setState({
+        registered,
+      });
+    }
+
+
     render() {
-        const { movies, selectedMovie, user, register } = this.state;
+        const { movies, selectedMovie, user, registered } = this.state;
 
         if (!register) 
-          return (<RegistrationView onRegistration={(register) => this.onRegistration(register)}/>);
+          return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
       
         //If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView
         if (!user) 
-          return <LoginView on LoggedIn={user => this.onLoggedIn(user)} />;
+          return (<LoginView 
+                  onLoggedIn={user => this.onLoggedIn(user)}
+                  toRegister={(registered) => this.toRegister(registered)} />
+                  );
       
         // before the movie shave been loaded
         if (movies.length === 0)
