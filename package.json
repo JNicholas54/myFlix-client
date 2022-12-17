@@ -1,56 +1,29 @@
 {
-
   "name": "myflix-client",
-
   "version": "1.0.0",
-
   "description": "",
-
   "scripts": {
-
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "dev": "parcel src/index.html",
-
     "build": "parcel build src/index.html"
-
   },
-
   "repository": {
-
     "type": "git",
-
     "url": "git+https://github.com/JNicholas54/myFlix-client.git"
-
   },
-
   "author": "",
-
   "license": "ISC",
-
   "bugs": {
-
     "url": "https://github.com/JNicholas54/myFlix-client/issues"
-
   },
-
   "homepage": "https://github.com/JNicholas54/myFlix-client#readme",
-
   "dependencies": {
-
     "axios": "^1.2.0",
-
     "bootstrap": "^5.2.3",
-
     "prop-types": "^15.8.1",
-
     "react": "^18.2.0",
-
     "react-bootstrap": "^2.7.0",
-
     "react-dom": "^18.2.0"
-
   }
-
 }
 
