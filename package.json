@@ -5,7 +5,7 @@
   "default": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel src/index.html",
+    "start": "parcel src/index.html",
     "build": "parcel build src/index.html"
   },
   "repository": {
@@ -27,7 +27,9 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-rc.0",
-    "parcel": "^2.8.2"
+    "@parcel/transformer-sass": "^2.7.0",
+    "buffer": "^5.7.1",
+    "parcel": "^2.7.0",
+    "process": "^0.11.10"
   }
 }
