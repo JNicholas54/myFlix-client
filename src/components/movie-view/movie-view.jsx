@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import { Row, Col, Button } from "react-bootstrap";
 
-import '/movie-view.scss';
+import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
